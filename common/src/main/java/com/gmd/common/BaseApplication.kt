@@ -1,6 +1,7 @@
 package com.gmd.common
 
 import android.app.Application
+import android.support.multidex.MultiDex
 import com.squareup.leakcanary.LeakCanary
 
 /**
@@ -25,6 +26,7 @@ open class BaseApplication : Application() {
             // You should not init your app in this process.
             return;
         }
-        LeakCanary.install(this);
+        LeakCanary.install(this)
+        MultiDex.install(this)
     }
 }

@@ -1,3 +1,5 @@
+package com.gmd
+
 import com.gmd.common.BaseApplication
 
 /**
