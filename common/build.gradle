@@ -45,8 +45,10 @@ dependencies {
     //控件绑定
     api 'com.jakewharton:butterknife:8.8.1'
     kapt 'com.jakewharton:butterknife-compiler:8.8.1'
+    //RxBindind
+    api 'com.jakewharton.rxbinding2:rxbinding:2.2.0'
     //多dex
-    api 'com.android.support:multidex:1.0.3'
+    implementation 'com.android.support:multidex:1.0.3'
     //刷新控件
     api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'
     //网络请求

@@ -1,11 +1,17 @@
 package com.gmd.main
 
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.Toast
 import com.gmd.R
 import com.gmd.adapter.TabViewPagerAdapter
 import com.gmd.common.base.BaseActivity
+import com.jakewharton.rxbinding2.view.RxView
+import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.activity_main.*
 import me.majiajie.pagerbottomtabstrip.NavigationController
+import java.util.concurrent.TimeUnit
 
 /**
  * 绑定实例
@@ -16,7 +22,7 @@ import me.majiajie.pagerbottomtabstrip.NavigationController
  * @OnClick(R.id.submit) void submit() {
  *  }
  *
- *
+ * TODO mvp或mvvm封装
  *
  */
 
