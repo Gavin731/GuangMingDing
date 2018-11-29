@@ -55,6 +55,8 @@ dependencies {
     api 'com.zhouyou:rxeasyhttp:2.1.2'
     //各种工具包
     api 'com.blankj:utilcode:1.22.0'
+    //权限
+    api 'com.github.tbruyelle:rxpermissions:0.10.2'
 
 }
 repositories {
