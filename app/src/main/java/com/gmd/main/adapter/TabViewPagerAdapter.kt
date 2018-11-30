@@ -1,9 +1,9 @@
-package com.gmd.adapter
+package com.gmd.main.adapter
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import com.gmd.fragment.AFragment
+import com.gmd.main.fragment.AFragment
 
 /**
  * @author: zenglinggui

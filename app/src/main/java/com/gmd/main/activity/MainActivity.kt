@@ -1,17 +1,16 @@
-package com.gmd.main
+package com.gmd.main.activity
 
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
-import android.widget.Toast
+import com.blankj.utilcode.util.ToastUtils
 import com.gmd.R
-import com.gmd.adapter.TabViewPagerAdapter
 import com.gmd.common.base.BaseActivity
-import com.jakewharton.rxbinding2.view.RxView
-import io.reactivex.functions.Consumer
+import com.gmd.common.mvp.IBaseView
+import com.gmd.common.mvp.IPresenter
+import com.gmd.main.adapter.TabViewPagerAdapter
+import com.gmd.main.presenter.MainPresenter
+import com.gmd.main.view.IMainView
 import kotlinx.android.synthetic.main.activity_main.*
 import me.majiajie.pagerbottomtabstrip.NavigationController
-import java.util.concurrent.TimeUnit
 
 /**
  * 绑定实例
@@ -22,24 +21,25 @@ import java.util.concurrent.TimeUnit
  * @OnClick(R.id.submit) void submit() {
  *  }
  *
- * TODO mvp或mvvm封装
- *
  */
 
-class MainActivity : BaseActivity() {
-
+class MainActivity : BaseActivity<MainPresenter>(), IMainView {
 
     private val COLORS = intArrayOf(-0xbaa59c, -0xff8695, -0x86aab8, -0xa4b6b9, -0xa8400)
     private lateinit var mNavigationController: NavigationController
 
+
+    override fun createPresenter(): MainPresenter {
+        return MainPresenter()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        initNavigation()
+        presenter.initView()
     }
 
-    private fun initNavigation() {
+    override fun initNavigation() {
         mNavigationController = pnvTab.material()
             .addItem(R.drawable.ic_ondemand_video_black_24dp, "首页", COLORS[0])
             .addItem(R.drawable.ic_audiotrack_black_24dp, "音乐", COLORS[1])
@@ -57,4 +57,7 @@ class MainActivity : BaseActivity() {
         mNavigationController.setMessageNumber(0, 100)
     }
 
+    override fun getResourcesHint(): String {
+        return "我是MainActivity提供的文案"
+    }
 }

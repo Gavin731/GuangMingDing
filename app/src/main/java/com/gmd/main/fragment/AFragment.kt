@@ -1,4 +1,4 @@
-package com.gmd.fragment
+package com.gmd.main.fragment
 
 
 import android.os.Bundle

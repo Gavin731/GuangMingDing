@@ -1,4 +1,4 @@
-package com.gmd.activity
+package com.gmd.main.activity
 
 import org.junit.Test
 

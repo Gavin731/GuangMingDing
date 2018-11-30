@@ -46,7 +46,7 @@ dependencies {
     api 'com.jakewharton:butterknife:8.8.1'
     kapt 'com.jakewharton:butterknife-compiler:8.8.1'
     //RxBindind
-    api 'com.jakewharton.rxbinding2:rxbinding:2.2.0'
+    api 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
     //多dex
     implementation 'com.android.support:multidex:1.0.3'
     //刷新控件
