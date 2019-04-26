@@ -12,7 +12,7 @@ package com.gmd.common.mvp
  * 2018/11/30     zenglinggui       v1.0.0        create
  *
  **/
-open interface IPresenter<V> {
+open interface IPresenter<V : IBaseView> {
 
     fun setView(view: V)
 

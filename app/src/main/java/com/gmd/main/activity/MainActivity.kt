@@ -1,11 +1,8 @@
 package com.gmd.main.activity
 
 import android.os.Bundle
-import com.blankj.utilcode.util.ToastUtils
 import com.gmd.R
 import com.gmd.common.base.BaseActivity
-import com.gmd.common.mvp.IBaseView
-import com.gmd.common.mvp.IPresenter
 import com.gmd.main.adapter.TabViewPagerAdapter
 import com.gmd.main.presenter.MainPresenter
 import com.gmd.main.view.IMainView
@@ -23,7 +20,7 @@ import me.majiajie.pagerbottomtabstrip.NavigationController
  *
  */
 
-class MainActivity : BaseActivity<MainPresenter>(), IMainView {
+class MainActivity : BaseActivity<IMainView, MainPresenter>(), IMainView {
 
     private val COLORS = intArrayOf(-0xbaa59c, -0xff8695, -0x86aab8, -0xa4b6b9, -0xa8400)
     private lateinit var mNavigationController: NavigationController
@@ -31,6 +28,10 @@ class MainActivity : BaseActivity<MainPresenter>(), IMainView {
 
     override fun createPresenter(): MainPresenter {
         return MainPresenter()
+    }
+
+    override fun createView(): IMainView {
+        return this
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

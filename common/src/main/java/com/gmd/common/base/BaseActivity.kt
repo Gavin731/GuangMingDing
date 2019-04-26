@@ -3,8 +3,8 @@ package com.gmd.common.base
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.blankj.utilcode.util.ToastUtils
+import com.gmd.common.mvp.BasePresenter
 import com.gmd.common.mvp.IBaseView
-import com.gmd.common.mvp.IPresenter
 
 /**
  * @author: zenglinggui
@@ -18,14 +18,15 @@ import com.gmd.common.mvp.IPresenter
  * 2018/11/27     zenglinggui       v1.0.0        create
  *
  **/
-open abstract class BaseActivity<P : IPresenter<*>> : AppCompatActivity(), IBaseView {
+open abstract class BaseActivity<V : IBaseView, P : BasePresenter<V>> : AppCompatActivity(), IBaseView {
 
     lateinit var presenter: P
+    lateinit var view: V
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         presenter = createPresenter()
-        presenter.setView(this)
+        presenter.setView(createView())
     }
 
     override fun onResume() {
@@ -48,4 +49,5 @@ open abstract class BaseActivity<P : IPresenter<*>> : AppCompatActivity(), IBase
     }
 
     abstract fun createPresenter(): P
+    abstract fun createView(): V
 }

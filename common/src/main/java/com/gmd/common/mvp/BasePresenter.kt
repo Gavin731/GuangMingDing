@@ -14,7 +14,7 @@ import java.lang.ref.WeakReference
  * 2018/11/30     zenglinggui       v1.0.0        create
  *
  **/
-open abstract class BasePresenter<V> : IPresenter<V> {
+open abstract class BasePresenter<V : IBaseView> : IPresenter<V> {
 
     var viewRef: WeakReference<V>? = null
 
